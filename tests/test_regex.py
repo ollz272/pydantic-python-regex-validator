@@ -1,5 +1,5 @@
 """Tests the functionality of the Regex validator."""
-from typing import Annotated
+from typing import Annotated, Optional
 
 import pydantic
 import pytest
@@ -51,6 +51,31 @@ class TestRegularRegex:
         field: Annotated[str, Regex(r"^foo")]
 
     @pytest.mark.parametrize("value", ["foo", "foobar", "foo123", "foo!"])
+    def test_model_validate_true(self, value):
+        """Tests validating with a valid string."""
+        assert self.Model(field=value).field == value
+
+    @pytest.mark.parametrize("value", ["bar", "barfoo", "1foo", "28437"])
+    def test_model_validate_false(self, value):
+        """Tests an exception is raised for an invalid string."""
+        with pytest.raises(pydantic.ValidationError):
+            self.Model(field=value)
+
+    def test_field_regex_in_schema(self):
+        """Tests the pattern appears in the schema."""
+        schema = self.Model(field="foo").model_json_schema()
+        assert schema["properties"]["field"]["pattern"] == r"^foo"
+
+
+class TestRegexWithNone:
+    """Tests functionality with a regular regex, allowing the field to be None."""
+
+    class Model(pydantic.BaseModel):
+        """Test Model."""
+
+        field: Annotated[Optional[str], Regex(r"^foo", allow_none=True)]
+
+    @pytest.mark.parametrize("value", ["foo", "foobar", "foo123", "foo!", None])
     def test_model_validate_true(self, value):
         """Tests validating with a valid string."""
         assert self.Model(field=value).field == value
