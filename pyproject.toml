@@ -2,7 +2,7 @@
 name = "pydantic-python-regex-validator"
 version = "0.1.0"
 description = "A regex validator for pydantic, using python regex."
-authors = ["Oli Parker <oliver.parker@gridedge.co.uk>"]
+authors = ["Oli Parker <oli.edmund.parker@gmail.com>"]
 readme = "README.md"
 packages = [{include = "pydantic_python_regex_validator"}]
 
