@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pydantic-python-regex-validator"
-version = "0.2.0"
+version = "0.3.0"
 description = "A regex validator for pydantic, using python regex."
 authors = ["Oli Parker <oli.edmund.parker@gmail.com>"]
 readme = "README.md"
