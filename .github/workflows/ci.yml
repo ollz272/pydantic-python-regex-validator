@@ -2,7 +2,6 @@ name: CI
 on: pull_request
 jobs:
   test:
-    name: Test
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -27,7 +26,7 @@ jobs:
           virtualenvs-in-project: true
           installer-parallel: true
 
-     - name: Install dependencies
+      - name: Install dependencies
         run: |
           poetry install
       - name: Black Lint
