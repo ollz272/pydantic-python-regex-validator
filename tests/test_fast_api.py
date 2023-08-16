@@ -1,9 +1,8 @@
 """Tests for functionality with fast api."""
-from pydantic_python_regex_validator.fast_api import RegexBody, RegexQuery
-
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
+from pydantic_python_regex_validator.fast_api import RegexBody, RegexQuery
 
 app = FastAPI()
 
@@ -45,6 +44,7 @@ def bar_post(param: RegexBody(pattern="^bar", allow_none=True) = None):
 
 
 client = TestClient(app)
+
 
 def test_correct_regex_get():
     """Tests fastapi parses the string correctly."""
