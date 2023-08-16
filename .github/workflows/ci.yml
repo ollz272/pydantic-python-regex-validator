@@ -28,7 +28,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install
+          poetry install -E all
       - name: Black Lint
         run: poetry run black --check pydantic_python_regex_validator tests
 
