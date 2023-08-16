@@ -13,8 +13,10 @@ else:
     from typing import Annotated
 
 
-def RegexQuery(
-    pattern: str, allow_none: bool = False, query_params: Optional[dict] = None,
+def RegexQuery(  # noqa: N802
+    pattern: str,
+    allow_none: bool = False,  # noqa: FBT001, FBT002
+    query_params: Optional[dict] = None,
 ) -> Type[str]:
     """Create a type that can enforce regex (using python) on a query string in fastapi.
 
@@ -28,12 +30,15 @@ def RegexQuery(
     return Annotated[t, Query(**q), Regex(pattern=pattern)]
 
 
-def RegexBody(
-    pattern: str, allow_none: bool = False, body_params: Optional[dict] = None,
+def RegexBody(  # noqa: N802
+    pattern: str,
+    allow_none: bool = False,  # noqa: FBT001, FBT002
+    body_params: Optional[dict] = None,
 ) -> Type[str]:
     """Create a type that can enforce regex (using python) on a body string in fastapi.
 
     :param pattern: The pattern to be enforced.
+    :param allow_none:
     :param body_params: Any kwargs to be passed to the query.
     :return: A type that fastapi can use to enforce regex patterns.
     """

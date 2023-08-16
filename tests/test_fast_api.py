@@ -2,14 +2,14 @@
 from platform import python_version
 
 if python_version()[:3] == "3.8":
-    from typing_extensions import Annotated
+    pass
 else:
-    from typing import Annotated
+    pass
 
-from fastapi import FastAPI, Body
+from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from pydantic_python_regex_validator.fast_api import RegexQuery, RegexBody
+from pydantic_python_regex_validator.fast_api import RegexBody, RegexQuery
 
 app = FastAPI()
 
@@ -20,8 +20,20 @@ def foo_get(param: RegexQuery(pattern="^foo")):
     return param
 
 
+@app.get("/foo-param")
+def foo_get_with_query_param(param: RegexQuery(pattern="^foo", query_params={"alias": "aParam"})):
+    """Test foo endpoint."""
+    return param
+
+
 @app.post("/foo")
 def foo_post(param: RegexBody(pattern="^foo")):
+    """Test foo endpoint."""
+    return param
+
+
+@app.post("/foo-param")
+def foo_post_with_param(param: RegexBody(pattern="^foo", body_params={"embed": True})):
     """Test foo endpoint."""
     return param
 
@@ -48,6 +60,13 @@ def test_correct_regex_get():
     assert response.json() == "foo"
 
 
+def test_correct_regex_get_with_alias():
+    """Tests fastapi parses the string correctly."""
+    response = client.get("/foo-param", params={"aParam": "foo"})
+    assert response.status_code == 200
+    assert response.json() == "foo"
+
+
 def test_incorrect_regex_get():
     """Tests fastapi rejects the incorrect regex."""
     response = client.get("/foo", params={"param": "bar"})
@@ -64,6 +83,13 @@ def test_correct_regex_with_missing_get():
 def test_correct_regex_post():
     """Tests fastapi parses the string correctly."""
     response = client.post("/foo", json="foo")
+    assert response.status_code == 200
+    assert response.json() == "foo"
+
+
+def test_correct_regex_post_with_embed():
+    """Tests fastapi parses the string correctly."""
+    response = client.post("/foo-param", json={"param": "foo"})
     assert response.status_code == 200
     assert response.json() == "foo"
 
