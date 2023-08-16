@@ -35,3 +35,6 @@ jobs:
 
       - name: Ruff Lint
         run: poetry run ruff check .
+
+      - name: Test Code
+        run: poetry run python -m pytest
