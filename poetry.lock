@@ -202,7 +202,7 @@ test = ["pytest (>=6)"]
 name = "fastapi"
 version = "0.101.1"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
-optional = false
+optional = true
 python-versions = ">=3.7"
 files = [
     {file = "fastapi-0.101.1-py3-none-any.whl", hash = "sha256:aef5f8676eb1b8389952e1fe734abe20f04b71f6936afcc53b320ba79b686a4b"},
@@ -570,7 +570,7 @@ files = [
 name = "starlette"
 version = "0.27.0"
 description = "The little ASGI library that shines."
-optional = false
+optional = true
 python-versions = ">=3.7"
 files = [
     {file = "starlette-0.27.0-py3-none-any.whl", hash = "sha256:918416370e846586541235ccd38a474c08b80443ed31c578a418e2209b3eef91"},
@@ -606,7 +606,11 @@ files = [
     {file = "typing_extensions-4.7.1.tar.gz", hash = "sha256:b75ddc264f0ba5615db7ba217daeb99701ad295353c45f9e95963337ceeeffb2"},
 ]
 
+[extras]
+all = ["fastapi"]
+fastapi = ["fastapi"]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "d68eb66a85d72b14b74d0eccd56b14e466711e6180c3914e44762da3d3693838"
+content-hash = "b2006883b3b432ba6160ade2627ad4d7882c6b397fafdf4398434f4726b43f5b"
