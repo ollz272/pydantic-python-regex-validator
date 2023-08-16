@@ -8,8 +8,8 @@ packages = [{include = "pydantic_python_regex_validator"}]
 repository = "https://github.com/ollz272/pydantic-python-regex-validator"
 classifiers = [
     "Framework :: FastAPI",
-    "Framework :: Pydantic ::2",
-	"Framework :: Pydantic ::2",
+    "Framework :: Pydantic",
+	"Framework :: Pydantic :: 2",
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3 :: Only",
 	"Programming Language :: Python :: 3.8",
