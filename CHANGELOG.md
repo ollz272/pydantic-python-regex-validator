@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/ollz272/pydantic-python-regex-validator/compare/0.3.0...0.3.1) (2023-08-16)
+
+
+### Bug Fixes
+
+* fix poetry.lock ([#7](https://github.com/ollz272/pydantic-python-regex-validator/issues/7)) ([ba2bb3e](https://github.com/ollz272/pydantic-python-regex-validator/commit/ba2bb3eb5c20e64cfa4b1407fd15656aeb3cd294))
+
 ## [0.3.0](https://github.com/ollz272/pydantic-python-regex-validator/compare/0.2.0...0.3.0) (2023-08-16)
 
 
