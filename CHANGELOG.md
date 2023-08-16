@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/ollz272/pydantic-python-regex-validator/compare/0.2.0...0.3.0) (2023-08-16)
+
+
+### Features
+
+* **fastapi:** add some fastapi utils ([#5](https://github.com/ollz272/pydantic-python-regex-validator/issues/5)) ([93d7fa5](https://github.com/ollz272/pydantic-python-regex-validator/commit/93d7fa51e7404f2496bf7bfe53fa3d85ab17a9a3))
+
 ## [0.2.0](https://github.com/ollz272/pydantic-python-regex-validator/compare/0.1.0...0.2.0) (2023-08-16)
 
 
