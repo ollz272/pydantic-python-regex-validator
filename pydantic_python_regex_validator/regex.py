@@ -1,11 +1,15 @@
 """Main logic module for the Python Regex class."""
+from __future__ import annotations
+
 import re
 from dataclasses import dataclass
-from typing import Any, Optional
+from typing import TYPE_CHECKING, Any
 
-from pydantic import GetCoreSchemaHandler, GetJsonSchemaHandler
-from pydantic.json_schema import JsonSchemaValue
 from pydantic_core import CoreSchema, PydanticCustomError, core_schema
+
+if TYPE_CHECKING:
+    from pydantic import GetCoreSchemaHandler, GetJsonSchemaHandler
+    from pydantic.json_schema import JsonSchemaValue
 
 
 @dataclass
@@ -21,7 +25,7 @@ class Regex:
     allow_none: bool = False
 
     def __get_pydantic_core_schema__(
-        self: "Regex",
+        self: Regex,
         source_type: Any,
         handler: GetCoreSchemaHandler,
     ) -> CoreSchema:
@@ -31,7 +35,7 @@ class Regex:
         """
         regex = re.compile(self.pattern)
 
-        def match(v: Optional[str]) -> Optional[str]:
+        def match(v: str | None) -> str | None:
             if v is None and self.allow_none:
                 return v
 
@@ -50,7 +54,7 @@ class Regex:
         )
 
     def __get_pydantic_json_schema__(
-        self: "Regex",
+        self: Regex,
         core_schema: CoreSchema,
         handler: GetJsonSchemaHandler,
     ) -> JsonSchemaValue:
