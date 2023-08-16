@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="RuffConfigService">
-    <option name="globalRuffExecutablePath" value="$USER_HOME$/Library/Python/3.9/bin/ruff" />
-    <option name="projectRuffExecutablePath" value="$USER_HOME$/Library/Caches/pypoetry/virtualenvs/pydantic-python-regex-validator-SBTp8s9e-py3.8/bin/ruff" />
-  </component>
-</project>
