@@ -1,10 +1,16 @@
 """Tests the functionality of the Regex validator."""
-from typing import Annotated, Optional
+from platform import python_version
+from typing import Optional
 
 import pydantic
 import pytest
 
 from pydantic_python_regex_validator.regex import Regex
+
+if python_version()[:3] == "3.8":
+    from typing_extensions import Annotated
+else:
+    from typing import Annotated
 
 
 class TestLookAroundRegex:

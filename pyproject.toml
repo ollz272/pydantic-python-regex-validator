@@ -17,6 +17,8 @@ black = "^23.7.0"
 coverage = "^7.3.0"
 pytest-cov = "^4.1.0"
 fastapi = "^0.101.1"
+httpx = "^0.24.1"
+
 
 [build-system]
 requires = ["poetry-core"]
@@ -29,6 +31,8 @@ line-length = 100
 select = ["ALL"]
 ignore = [
     "ANN401",
+	"TCH001",  # We use types at runtime!
+	'FA100'
 ]
 
 line-length = 100
@@ -38,4 +42,11 @@ target-version = "py38"
 "tests/*" = [
 	"S101",  # Allow asserts in tests
 	"ANN",   # Don't care about type annotations in tests
+	"PLR2004"  # Allow comparison
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "# pragma: no cover",
+    "if TYPE_CHECKING:"
 ]
