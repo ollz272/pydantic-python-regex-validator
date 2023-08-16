@@ -7,7 +7,9 @@ readme = "README.md"
 packages = [{include = "pydantic_python_regex_validator"}]
 repository = "https://github.com/ollz272/pydantic-python-regex-validator"
 classifiers = [
-	"Framework ::Pydantic::2",
+    "Framework :: FastAPI",
+    "Framework :: Pydantic ::2",
+	"Framework :: Pydantic ::2",
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3 :: Only",
 	"Programming Language :: Python :: 3.8",
