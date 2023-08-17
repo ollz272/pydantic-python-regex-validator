@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from pydantic_python_regex_validator.fast_api import RegexBody, RegexQuery
+from pydantic_python_regex_validator import RegexBody, RegexQuery
 
 app = FastAPI()
 

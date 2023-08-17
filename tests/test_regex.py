@@ -5,7 +5,7 @@ from typing import Optional
 import pydantic
 import pytest
 
-from pydantic_python_regex_validator.regex import Regex
+from pydantic_python_regex_validator import Regex
 
 if python_version()[:3] == "3.8":
     from typing_extensions import Annotated
