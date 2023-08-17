@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.4](https://github.com/ollz272/pydantic-python-regex-validator/compare/0.3.3...0.3.4) (2023-08-17)
+
+
+### Bug Fixes
+
+* **fastapi:** fixes allow_none not being respected ([#12](https://github.com/ollz272/pydantic-python-regex-validator/issues/12)) ([3a5df88](https://github.com/ollz272/pydantic-python-regex-validator/commit/3a5df88c6a90be97abfa6b438f77ff11856a4ec6))
+
 ## [0.3.3](https://github.com/ollz272/pydantic-python-regex-validator/compare/0.3.2...0.3.3) (2023-08-17)
 
 
