@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.3](https://github.com/ollz272/pydantic-python-regex-validator/compare/0.3.2...0.3.3) (2023-08-17)
+
+
+### Bug Fixes
+
+* fix imports, add docs ([#10](https://github.com/ollz272/pydantic-python-regex-validator/issues/10)) ([ef10152](https://github.com/ollz272/pydantic-python-regex-validator/commit/ef10152497954971e9cf523050681153d7ca5f5e))
+
 ## [0.3.2](https://github.com/ollz272/pydantic-python-regex-validator/compare/0.3.1...0.3.2) (2023-08-16)
 
 
