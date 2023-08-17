@@ -25,14 +25,17 @@ This will then have field, `my_field`, which will have the regex constraint `^fo
 
 This can also be used with fastapi.
 ```python
-from pydantic_python_regex_validator import Regex
-from fastapi import FastAPI, Query
-from typing import Annotated
+from pydantic_python_regex_validator import RegexQuery, RegexBody
+from fastapi import FastAPI
 
 app = FastAPI()
 
 @app.get("/test")
-async def endpoint(my_param: Annotated[str, Query(), Regex(r"^foo")]):
+async def get_endpoint(my_param: RegexQuery("^foo")):
+    return my_param
+
+@app.post("/test")
+async def post_endpoint(my_param: RegexBody("^foo")):
     return my_param
 ```
 
