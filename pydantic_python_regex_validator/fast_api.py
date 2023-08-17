@@ -27,7 +27,7 @@ def RegexQuery(  # noqa: N802
     """
     t = Optional[str] if allow_none else str
     q = query_params if query_params else {}
-    return Annotated[t, Query(**q), Regex(pattern=pattern)]
+    return Annotated[t, Query(**q), Regex(pattern=pattern, allow_none=allow_none)]
 
 
 def RegexBody(  # noqa: N802
@@ -42,7 +42,6 @@ def RegexBody(  # noqa: N802
     :param body_params: Any kwargs to be passed to the query.
     :return: A type that fastapi can use to enforce regex patterns.
     """
-    if allow_none:
-        ...
+    t = Optional[str] if allow_none else str
     b = body_params if body_params else {}
-    return Annotated[str, Body(**b), Regex(pattern=pattern)]
+    return Annotated[t, Body(**b), Regex(pattern=pattern, allow_none=allow_none)]
